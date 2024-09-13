@@ -13,12 +13,16 @@
  * Prints out the name of each item in the given array.
  * @param {Item[]} items - array of items
  */
+
 function logNames(items) {
+  // Looks at the items within the array and console logs the name within that item.
   function names(obj) {
     console.log(obj.name);
   }
+  //Loops the function names() for each item in the array.
   items.forEach(names);
 
+  //Below is syntactic sugar for the above function within the main function.
   //items.forEach((obj)=> console.log(obj.name))
 }
 
@@ -28,9 +32,11 @@ function logNames(items) {
  */
 
 function getUppercaseNames(items) {
+  // Looks at the objects within the array and returns the name within the item.
   function names(obj) {
     return obj.name;
   }
+  //Creates a copy of the original array and returns each item within the new array with the original items name un uppercase letters.
   return items.map((obj) => obj.name.toUpperCase());
 }
 
@@ -39,7 +45,9 @@ function getUppercaseNames(items) {
  * @param {number} id - id of the item to find
  * @returns {Item} - the item in `items` with the given `id`
  */
+
 function getItemById(items, id) {
+  //Finds the first item with an id that matches the user input and returns the entire item.
   const item = items.find((obj) => id === obj.id);
   return item;
 }
@@ -50,8 +58,10 @@ function getItemById(items, id) {
  * @returns {number} the price of the item named `name`
  */
 function getItemPriceByName(items, name) {
+  //Finds the first item within the array that has a name that matches the the user input.
   const item = items.find((item) => item.name === name);
-  return item ? item.price : "Can't find that item";
+  //Returns the price of the item if the item is found in the array, otherwise prints the statement "Can't find that item.".
+  return item ? item.price : "Can't find that item.";
 }
 
 /**
@@ -60,6 +70,7 @@ function getItemPriceByName(items, name) {
  * @returns {Item[]} array of items that belong to the given `category`
  */
 function getItemsByCategory(items, category) {
+  //Filters through the items for ones that have a category value matching the user input and then returns those items within an array.
   const item = items.filter((item) => item.category === category);
   return item;
 }
@@ -69,6 +80,7 @@ function getItemsByCategory(items, category) {
  * @returns {number} the total quantity of all items
  */
 function countItems(items) {
+  //Counts the items within the array and returns the total number.
   let count = 0;
   for (const item of items) {
     count++;
@@ -81,6 +93,7 @@ function countItems(items) {
  * @returns {number} the cost of all given items
  */
 function calculateTotalPrice(items) {
+  //Looks for the price key in each item and adds together all the values. It then returns the total price.
   let count = 0;
   for (const item of items) {
     count += item.price;
